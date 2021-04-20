@@ -1,4 +1,4 @@
-package main
+package controllers
 
 import (
 	"crypto/sha256"
@@ -17,7 +17,7 @@ import (
 	"github.com/gorilla/mux"
 )
 
-func renderMarkdown(p chan document, publicationChan chan document, errChan chan error) {
+func renderMarkdown(p chan typesVarsAndConst.document, publicationChan chan document, errChan chan error) {
 	// lo que hace es parsear el markdown en html
 	extensions := parser.CommonExtensions | parser.AutoHeadingIDs
 	parser := parser.NewWithExtensions(extensions)
