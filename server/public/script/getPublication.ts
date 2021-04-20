@@ -1,3 +1,4 @@
+// @ts-nocheck
 interface Pub {
   Cantidad: number;
   Publications: {
@@ -9,7 +10,7 @@ interface Pub {
   Size: number;
 }
 
-async function NewPublications() {
+function NewPublications() {
   let urlApi: string =
     "api" + "/" + window.location.pathname.replace(/\//gi, "");
   let publication: Pub | string = {
@@ -26,7 +27,7 @@ async function NewPublications() {
   };
 
   // this is only for get the api
-  await fetch(urlApi)
+  fetch(urlApi)
     .then((r) => r.text())
     .then((data) => {
       publication = data;
@@ -52,7 +53,10 @@ async function NewPublications() {
             ${
               i.bodyOfDocument
                 .slice(0, i.bodyOfDocument.indexOf("\n") % 40)
-                .replace(/#|'|`|"|\||-|@|=/gi, "") + "..."
+                .replace(
+                  /#|'|`|"|\||-|@|=|([(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*))/gi,
+                  ""
+                ) + "..."
             }
             </p>
           </div>
