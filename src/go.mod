@@ -1,4 +1,4 @@
-module github.com/ranon-rat/myBlog
+module github.com/ranon-rat/silent-songs
 
 go 1.15
 
