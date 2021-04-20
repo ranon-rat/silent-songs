@@ -56,7 +56,7 @@ El cuerpo del json es algo asi
             "bodyOfDocument": "# hello world"
         }
     ],
-  "Size": 1;
+  "Size": 1
 }
 ```
 Es  bastante sencillo de manejar y lo que es cada parte es muy simple de explicar 
