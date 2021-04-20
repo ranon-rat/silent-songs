@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post</title>
+    <link rel="stylesheet" href="/public/style/style.css">
+    <script src="/public/script/post.js"></script>  
+</head>
+<body>
+    <h2>well here we go </h2>
+    <h2>title</h2> 
+    <div class ="contenedor" id = "titulo" contenteditable="true"></div>
+    <h2>miniature(here you need to upload a url )</h2>
+    <div class ="contenedor" id= "mineatura" contenteditable="true"></div>
+    <h2>body</h2>
+    <p>
+        <pre class="language-md"></pre>
+        <code class=" language-go">
+            
+    <textarea class="contenedor language-md" id="bodyOfMessage" name="subject" style="color:#000;height:20em;width:100%" placeholder="Write something.." ></textarea>
+</code>
+</pre>  
+</p>
+    </div>
+    <button onclick="sendDocument()">send </button>
+    <input type="file" name="inputfile"
+    id="inputfile"> 
+<br> 
+<script type="text/javascript"> 
+document.getElementById('inputfile') 
+    .addEventListener('change', function() { 
+    var fr=new FileReader(); 
+    fr.onload=function(){ 
+        document.getElementById('bodyOfMessage').value=fr.result; 
+    } 
+    fr.readAsText(this.files[0]); 
+}) 
+</script>    
+</body>
+</html>
