@@ -19,6 +19,7 @@ RUN go build main.go
 
 # delete some things
 RUN rm -rf public/script/*.ts
+RUN  rm -rf database/inicialize.sql
 RUN apt-get remove nodejs -y && apt-get remove npm -y
 
 CMD ["./main"]
