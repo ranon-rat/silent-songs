@@ -2,10 +2,8 @@ package controllers
 
 import (
 	"encoding/json"
-	"io/ioutil"
 	"log"
 	"net/http"
-	"strings"
 	"time"
 
 	"github.com/ranon-rat/silent-songs/src/dataControll"
@@ -14,11 +12,7 @@ import (
 
 // this is the post manager , with this you can do really interesting things
 func NewPost(w http.ResponseWriter, r *http.Request) {
-	conf, err := ioutil.ReadFile("database/adminip.txt")
-	if err != nil {
-		log.Println(err)
-		return
-	}
+	canPublic:=make(chan bool)
 
 	// aqui solo es para ver los metodos
 
@@ -31,9 +25,10 @@ func NewPost(w http.ResponseWriter, r *http.Request) {
 			Expires: time.Now().AddDate(1, 0, 0),
 		})
 	}
+	go dataControll.VerifyCookieIP(cookie.Value,canPublic)
 	// new things
 	// go back to the normal
-	if strings.Contains(string(conf), stuff.EncryptData(r.Header.Get("x-forwarded-for"))) || strings.Contains(string(conf), stuff.EncryptData(cookie.Value)) {
+	if <-canPublic {
 		switch r.Method {
 		case "POST":
 			// i need to do some data bases for do this
@@ -50,11 +45,8 @@ func NewPost(w http.ResponseWriter, r *http.Request) {
 				log.Println("fuck")
 				return
 			}
-
 			// add the publications
-
 			go dataControll.AddPublication(d)
-
 			break
 		case "GET":
 

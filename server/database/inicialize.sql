@@ -1,8 +1,4 @@
--- this is for postgresql
-CREATE DATABASE publications
-    WITH 
-    OWNER = ranon;
-
+-- its for sqlite3
 CREATE TABLE publ
 (
     id SERIAL PRIMARY KEY,
@@ -10,3 +6,7 @@ CREATE TABLE publ
     mineatura TEXT NOT NULL,
     body TEXT NOT NULL
 );
+CREATE TABLE users(
+    id INTEGER PRIMARY KEY,
+    ip_encrypted VARCHAR(64)
+)
