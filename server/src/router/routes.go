@@ -1,7 +1,6 @@
 package router
 
 import (
-	"log"
 	"net/http"
 	"os"
 
@@ -9,7 +8,7 @@ import (
 	"github.com/ranon-rat/silent-songs/src/controllers"
 )
 
-func Routes() {
+func Routes() error {
 	// aqui solo es para dar la salida de informacion
 
 	r := mux.NewRouter()
@@ -39,5 +38,5 @@ func Routes() {
 		port = "8080"
 	}
 
-	log.Println(http.ListenAndServe(":"+port, r))
+	return http.ListenAndServe(":"+port, r)
 }

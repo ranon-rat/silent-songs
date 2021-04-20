@@ -10,6 +10,6 @@ import (
 func main() {
 
 	log.Println("starting server")
-	router.Routes()
+	log.Println(router.Routes())
 
 }
