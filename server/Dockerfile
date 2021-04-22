@@ -1,4 +1,4 @@
-FROM golang:latest
+FROM golang:alpine
 
 COPY . /silent-songs/
 WORKDIR /go/silent-songs/
