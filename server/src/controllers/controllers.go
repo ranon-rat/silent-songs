@@ -7,7 +7,7 @@ import (
 	"strconv"
 
 	"github.com/gorilla/mux"
-	"github.com/ranon-rat/silent-songs/src/dataControll"
+	"github.com/ranon-rat/silent-songs/src/dataControl"
 	"github.com/ranon-rat/silent-songs/src/stuff"
 )
 
@@ -18,19 +18,13 @@ func Check(c chan bool, d stuff.Document, w http.ResponseWriter) {
 	c <- d.Body == "" || d.Title == "" || d.Mineatura == "" || err != nil
 }
 
-
-
-
 // this is the ap
 
 func Api(w http.ResponseWriter, r *http.Request) {
 	// only send this
 	// this is for use the apis
-	min, err := strconv.Atoi(mux.Vars(r)["page"])
-	if err != nil {
-		w.Write([]byte("something is wrong"))
-		return
-	}
+	min, _ := strconv.Atoi(mux.Vars(r)["page"])
+
 
 	// concurrency communication
 	//the db management
@@ -38,14 +32,16 @@ func Api(w http.ResponseWriter, r *http.Request) {
 
 	// we use this function only one time so, im only usign a anon function 😩
 
-	go dataControll.GetPublications(min, dChan)
-	go dataControll.GetTheSizeOfTheQuery(sizeChan)
+	go dataControl.GetPublications(min, dChan)
+
+	go dataControl.GetTheSizeOfTheQuery(sizeChan)
+
+	
 	api := stuff.Publications{
 		Cantidad:     stuff.Cantidad,
 		Publications: <-dChan,
 		Size:         <-sizeChan,
 	}
-
 	// send the json
 	json.NewEncoder(w).Encode(api)
 

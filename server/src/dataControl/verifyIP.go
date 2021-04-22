@@ -1,4 +1,4 @@
-package dataControll
+package dataControl
 
 import "github.com/ranon-rat/silent-songs/src/stuff"
 

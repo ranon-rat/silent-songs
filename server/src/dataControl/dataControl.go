@@ -1,4 +1,4 @@
-package dataControll
+package dataControl
 
 import (
 	"database/sql"

@@ -1,4 +1,4 @@
-package dataControll
+package dataControl
 
 import (
 	_ "github.com/mattn/go-sqlite3"

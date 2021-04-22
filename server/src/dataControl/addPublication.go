@@ -1,8 +1,7 @@
-package dataControll
+package dataControl
 
 import (
 	"errors"
-	"log"
 
 	"github.com/ranon-rat/silent-songs/src/stuff"
 
@@ -17,19 +16,14 @@ func AddPublication(e stuff.Document) error {
 	`
 	db := GetConnection()
 	defer db.Close()
-	stm, err := db.Prepare(q)
-	if err != nil {
-		log.Println(err)
-		return err
-	}
+	stm, _ := db.Prepare(q)
+	
 	defer stm.Close()
-	r, err := stm.Exec(&e.Title, &e.Mineatura, &e.Body)
-	if err != nil {
-		log.Println(err)
-		return err
-	}
+	r, _ := stm.Exec(&e.Title, &e.Mineatura, &e.Body)
+	
 	i, _ := r.RowsAffected()
 	if i != 1 {
+		
 		return errors.New("se esperaba una sola fila omg")
 	}
 	return nil
