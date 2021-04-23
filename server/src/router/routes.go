@@ -29,7 +29,7 @@ func Routes() error {
 	r.HandleFunc(`/api/{page:[\d]+}`, controllers.Api)
 	// render the publication
 
-	r.HandleFunc(`/publication/{id:[\d]+}`, controllers.RenderInfo)
+	r.HandleFunc(`/publication/{id:[\d]+}`, controllers.Publication)
 	port, ok := os.LookupEnv("PORT")
 
 	if !ok {

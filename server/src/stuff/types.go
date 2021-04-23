@@ -11,3 +11,13 @@ type Publications struct {
 	Publications []Document `json:"Publications"`
 	Cantidad     int        `json:"Cantidad"`
 }
+type Comment struct {
+	
+	Username string `json:"username"`
+	Body     string `json:"body-comment"`
+}
+
+type ErrorCode struct{
+	Code int
+	Message string
+}

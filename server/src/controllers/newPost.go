@@ -1,14 +1,11 @@
 package controllers
 
 import (
-	"encoding/json"
-	"log"
 	"net/http"
 	"time"
 
 	"github.com/ranon-rat/silent-songs/src/dataControl"
 	"github.com/ranon-rat/silent-songs/src/stuff"
-	"golang.org/x/sync/errgroup"
 )
 
 // this is the post manager , with this you can do really interesting things
@@ -33,31 +30,16 @@ func NewPost(w http.ResponseWriter, r *http.Request) {
 	if <-canPublic {
 		switch r.Method {
 		case "POST":
-			// i need to do some data bases for do this
-
-			// in the future i gonna do something with this
-			d, controlErrors, cont := stuff.Document{}, errgroup.Group{}, make(chan bool)
-
-			// decode the bodyRequest
-			json.NewDecoder(r.Body).Decode(&d)
-
-			// this is for check if something is wrong
-			go Check(cont, d, w)
-			if <-cont {
-				log.Println("fuck")
-				return
-			}
-			controlErrors.Go(func() error {
-				// add the publications
-				return dataControl.AddPublication(d)
-			})
-			if err = controlErrors.Wait(); err != nil {
-				log.Println(err)
-				return
-			}
+		var void stuff.ErrorCode
+		if err:=PostChecker(w , r );err!=void {
+			http.Error(w,err.Message,err.Code)
 			return
+		}
+		w.Write([]byte("succesfull upload"))
 
+		return
 		case "GET":
+
 
 			http.ServeFile(w, r, "view/post.html")
 			return
@@ -73,3 +55,4 @@ func NewPost(w http.ResponseWriter, r *http.Request) {
 	http.ServeFile(w, r, "view/denegado.html")
 
 }
+

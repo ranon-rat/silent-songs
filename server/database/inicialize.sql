@@ -6,6 +6,12 @@ CREATE TABLE publ
     mineatura TEXT NOT NULL,
     body TEXT NOT NULL
 );
+CREATE TABLE comment(
+    id INTEGER PRIMARY KEY,
+    id_publ INTEGER,
+    username VARCHAR(32),
+    body TEXT
+);
 CREATE TABLE users(
     id INTEGER PRIMARY KEY,
     ip_encrypted VARCHAR(64)
