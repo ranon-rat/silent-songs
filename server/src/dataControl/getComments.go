@@ -1,1 +1,3 @@
 package dataControl
+
+func GetComments(){}

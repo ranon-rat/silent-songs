@@ -33,7 +33,7 @@ Algo asi:
 ```json
 {
   "title"            : "el titulo",
-  "mineatura"        : "url de la imagen",
+  "miniature"        : "url de la imagen",
   "bodyOfDocument"   : "el markdown del archivo que se ha ingresado",
 }
 ```
@@ -52,7 +52,7 @@ El cuerpo del json es algo asi
         {    
             "id": 1,
             "title": "hola mundo",
-            "mineatura": "https://www.programaresfacil.co/wp-content/uploads/2018/02/Hola-Mundo.png",
+            "miniature": "https://www.programaresfacil.co/wp-content/uploads/2018/02/Hola-Mundo.png",
             "bodyOfDocument": "# hello world"
         }
     ],
@@ -69,4 +69,4 @@ lo que es el atributo Quantity es para saber la cantidad de publicaciones que es
 Solo es para saber cuantas publicaciones hay disponibles
 
 ### Publications
-Si quieres acceder a alguno de sus atributos como para ponerle alguna mineatura , titulo o manejar los links hacia las publicaciones pues para esto existe este atributo
+Si quieres acceder a alguno de sus atributos como para ponerle alguna miniature , titulo o manejar los links hacia las publicaciones pues para esto existe este atributo

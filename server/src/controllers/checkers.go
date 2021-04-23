@@ -12,9 +12,9 @@ import (
 
 // this only is for the styles and script
 func Check(c chan bool, d stuff.Document, w http.ResponseWriter) {
-	_, err := http.Get(d.Mineatura)
+	_, err := http.Get(d.Miniature)
 	log.Println(d, err)
-	c <- d.Body == "" || d.Title == "" || d.Mineatura == "" || err != nil
+	c <- d.Body == "" || d.Title == "" || d.Miniature == "" || err != nil
 }
 func PostChecker(w http.ResponseWriter, r *http.Request)stuff.ErrorCode {
 	// i need to do some data bases for do this

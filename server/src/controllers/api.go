@@ -21,7 +21,7 @@ func Api(w http.ResponseWriter, r *http.Request) {
 	//the db management
 	sizeChan, dChan := make(chan int), make(chan []stuff.Document)
 
-	// we use this function only one time so, im only usign a anon function 😩
+	// we use this function only one time so, im only using a anon function 😩
 
 	go dataControl.GetPublications(min, dChan)
 

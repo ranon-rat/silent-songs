@@ -3,7 +3,7 @@ package stuff
 type Document struct {
 	ID        int    `json:"id"`
 	Title     string `json:"title"`
-	Mineatura string `json:"mineatura"`
+	Miniature string `json:"miniature"`
 	Body      string `json:"bodyOfDocument"`
 }
 type Publications struct {

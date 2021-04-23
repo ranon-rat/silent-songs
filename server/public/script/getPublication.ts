@@ -4,7 +4,7 @@ interface Pub {
   Publications: {
     id: number;
     title: string;
-    mineatura: string;
+    miniature: string;
     bodyOfDocument: string;
   }[];
   Size: number;
@@ -18,7 +18,7 @@ function NewPublications() {
       {
         id: 0,
         title: "",
-        mineatura: "",
+        miniature: "",
         bodyOfDocument: "",
       },
     ],
@@ -45,7 +45,7 @@ function NewPublications() {
       <a  class="publications" href="/publication/${i.id}">
         <div >
           <div class="publicationContent">
-          <img src="${i.mineatura}" >    
+          <img src="${i.miniature}" >    
           <div class="aboutPubication"> 
             <h1 >
               ${i.title}

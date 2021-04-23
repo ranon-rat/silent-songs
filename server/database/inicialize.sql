@@ -3,7 +3,7 @@ CREATE TABLE publ
 (
     id INTEGER PRIMARY KEY,
     titulo TEXT NOT NULL,
-    mineatura TEXT NOT NULL,
+    miniature TEXT NOT NULL,
     body TEXT NOT NULL
 );
 CREATE TABLE comment(

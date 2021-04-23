@@ -11,8 +11,8 @@ func GetTheSizeOfTheQuery(sizeChan chan int) error {
 	`
 	// como no he encontrado muchas maneras de encontrar el
 	//tamaño de una tabla lo que hace aqui es basicamente seleccionar el maximo valor
-	var dataSize int
-	db := GetConnection()
+
+	db,dataSize  := GetConnection(),0
 	defer db.Close()
 	m, _ := db.Query(q)
 	defer m.Close()

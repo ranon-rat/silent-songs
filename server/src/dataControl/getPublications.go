@@ -34,7 +34,7 @@ func GetPublications(min int, pChan chan []stuff.Document) {
 		// repasa la informacion,
 		var d stuff.Document
 		// cambia los valores de publication
-		m.Scan(&d.ID, &d.Title, &d.Mineatura, &d.Body)
+		m.Scan(&d.ID, &d.Title, &d.Miniature, &d.Body)
 
 		pubs = append(pubs, d)
 		// los agrega a una listaa

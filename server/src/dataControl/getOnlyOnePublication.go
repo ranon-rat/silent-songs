@@ -20,7 +20,7 @@ func GetOnlyOnePublication(id int, aChan chan stuff.Document)  {
 	var d stuff.Document
 	for p.Next() {
 
-		p.Scan(&d.ID, &d.Title, &d.Mineatura, &d.Body)
+		p.Scan(&d.ID, &d.Title, &d.Miniature, &d.Body)
 		
 	}
 	aChan <- d
