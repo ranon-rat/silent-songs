@@ -25,7 +25,7 @@ func GetPublications(min int, pChan chan []stuff.Document) {
 	// aqui lo que hace es conectarse a la base de datos
 	defer db.Close()
 	//espera a cerrarse para evitar ciertos problemas de seguridad
-	m, _ := db.Query(q, (size - (min * stuff.Cantidad)), (size-(min*stuff.Cantidad)+stuff.Cantidad)+1) // envia esto y la salida deb de ser la siguiente
+	m, _ := db.Query(q, (size - (min * stuff.Quantity)), (size-(min*stuff.Quantity)+stuff.Quantity)+1) // envia esto y la salida deb de ser la siguiente
 
 	defer m.Close() // espera a cerrar el canal ( por razones de seguridad)
 

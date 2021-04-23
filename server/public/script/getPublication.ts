@@ -1,6 +1,6 @@
 // @ts-nocheck
 interface Pub {
-  Cantidad: number;
+  Quantity: number;
   Publications: {
     id: number;
     title: string;
@@ -23,7 +23,8 @@ function NewPublications() {
       },
     ],
     Size: 0,
-    Cantidad: 0,
+
+    Quantity: 0,
   };
 
   // this is only for get the api
@@ -74,7 +75,7 @@ function NewPublications() {
   let pagePublications: any = document.getElementById("pagePublications");
   for (
     let i: number = 1;
-    i <= publication.Size / publication.Cantidad + 1;
+    i <= publication.Size / publication.Quantity + 1;
     i++
   ) {
     let Element: string = `

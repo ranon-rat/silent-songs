@@ -17,7 +17,6 @@ func Api(w http.ResponseWriter, r *http.Request) {
 	// this is for use the apis
 	min, _ := strconv.Atoi(mux.Vars(r)["page"])
 
-
 	// concurrency communication
 	//the db management
 	sizeChan, dChan := make(chan int), make(chan []stuff.Document)
@@ -28,9 +27,9 @@ func Api(w http.ResponseWriter, r *http.Request) {
 
 	go dataControl.GetTheSizeOfTheQuery(sizeChan)
 
-	
 	api := stuff.Publications{
-		Cantidad:     stuff.Cantidad,
+
+		Quantity: stuff.Quantity,
 		Publications: <-dChan,
 		Size:         <-sizeChan,
 	}

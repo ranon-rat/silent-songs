@@ -1,5 +1,5 @@
 package stuff
 
 const (
-	Cantidad int = 9
+	Quantity int = 9
 )

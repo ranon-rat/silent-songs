@@ -47,7 +47,7 @@ El cuerpo del json es algo asi
 
 ```json
  {
-  "Cantidad": 9,
+  "Quantity": 9,
   "Publications": [
         {    
             "id": 1,
@@ -61,9 +61,9 @@ El cuerpo del json es algo asi
 ```
 Es  bastante sencillo de manejar y lo que es cada parte es muy simple de explicar 
 
-### Cantidad
+### Quantity
 
-lo que es el atributo cantidad es para saber la cantidad de publicaciones que esten en cada homepage
+lo que es el atributo Quantity es para saber la cantidad de publicaciones que esten en cada homepage
  
 ### Size
 Solo es para saber cuantas publicaciones hay disponibles

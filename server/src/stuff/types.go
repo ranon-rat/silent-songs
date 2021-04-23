@@ -9,12 +9,18 @@ type Document struct {
 type Publications struct {
 	Size         int        `json:"Size"`
 	Publications []Document `json:"Publications"`
-	Cantidad     int        `json:"Cantidad"`
+	Quantity     int        `json:"Quantity"`
 }
+
 type Comment struct {
 	
 	Username string `json:"username"`
 	Body     string `json:"body-comment"`
+}
+type Comments struct{
+	Size int `json:"size"`
+	Comments []Comment `json:"comments"`
+	Quantity int `json:"Quantity-comments"`
 }
 
 type ErrorCode struct{
